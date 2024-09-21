@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="701.0" prefWidth="1158.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagement.controllers.DashboardController">
+   <children>
+      <AnchorPane layoutX="-6.0" prefHeight="701.0" prefWidth="258.0" style="-fx-background-color: #b186db; -fx-background-radius: 11;">
+         <children>
+            <Pane layoutX="20.0" layoutY="15.0" prefHeight="64.0" prefWidth="227.0" style="-fx-background-color: #4b2570; -fx-background-radius: 30;">
+               <children>
+                  <Label contentDisplay="CENTER" graphicTextGap="0.0" layoutX="25.0" layoutY="14.0" prefHeight="37.0" prefWidth="120.0" text="Task Flow" textFill="#f2f0f0">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIcon fill="WHITE" glyphName="TASKS" layoutX="156.0" layoutY="48.0" size="2.8em" wrappingWidth="37.956998142502584" />
+               </children>
+            </Pane>
+            <Button fx:id="homeButton" layoutX="28.0" layoutY="141.0" mnemonicParsing="false" onAction="#homeButtonOnClick" prefHeight="56.0" prefWidth="184.0" style="-fx-background-color: #b186db;" text="Home" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="WHITE" glyphName="HOME" layoutX="44.0" layoutY="179.0" size="2.5em" text="" />
+            <Button fx:id="logOutButton" layoutX="23.0" layoutY="600.0" mnemonicParsing="false" onAction="#logOutOnClick" prefHeight="56.0" prefWidth="226.0" style="-fx-background-color: #b186db;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutX="60.0" layoutY="640.0" size="2.5em" />
+            <Button fx:id="myTaskButton" layoutX="22.0" layoutY="203.0" mnemonicParsing="false" onAction="#MyTaskButtonOnClick" prefHeight="56.0" prefWidth="226.0" style="-fx-background-color: #b186db;" text="My Tasks" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="WHITE" glyphName="CHECK_CIRCLE" layoutX="45.0" layoutY="243.0" size="2.5em" />
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.7164499759674072" green="0.542900025844574" blue="0.8899999856948853" opacity="0.9177820086479187" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="252.0" layoutY="-1.0" prefHeight="653.0" prefWidth="801.0">
+         <children>
+            <Button fx:id="userNameButton" layoutX="700.0" layoutY="20.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="168.0" style="-fx-background-color: #e2e1e3; -fx-background-radius: 20;" text="anuradhabhaskar" textFill="#514b4b">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="#514b4b" glyphName="USER" size="1.6em" />
+               </graphic>
+            </Button>
+            <AnchorPane fx:id="homepage" prefHeight="702.0" prefWidth="905.0">
+               <children>
+                  <Label fx:id="welcomeUser" layoutX="38.0" layoutY="78.0" prefHeight="31.0" prefWidth="240.0" text="Welcome Anuradha!!" textFill="#514b4b">
+                     <font>
+                        <Font name="System Italic" size="26.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="69.0" layoutY="300.0" prefHeight="340.0" prefWidth="221.0" style="-fx-background-color: #C499F3; -fx-background-radius: 30;">
+                     <children>
+                        <Label layoutX="35.0" layoutY="31.0" text="Pending tasks" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="WHITE" layoutX="107.0" layoutY="129.0" radius="41.0" stroke="WHITE" strokeType="INSIDE" />
+                        <FontAwesomeIcon fill="#e46666" glyphName="BELL" layoutX="91.0" layoutY="140.0" size="2.5em" />
+                        <Label fx:id="pendingTaskCount" layoutX="95.0" layoutY="202.0" text="0" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="viewPendingTasks" layoutX="51.0" layoutY="262.0" mnemonicParsing="false" onAction="#viewPendingTasksOnClick" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="View Tasks" textFill="#514b4b">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.615686297416687" green="0.529411792755127" blue="0.9490196108818054" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="341.0" layoutY="299.0" prefHeight="340.0" prefWidth="221.0" style="-fx-background-color: #C499F3; -fx-background-radius: 30;">
+                     <children>
+                        <Label layoutX="35.0" layoutY="31.0" text="Ongoing tasks" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="WHITE" layoutX="107.0" layoutY="129.0" radius="41.0" stroke="WHITE" strokeType="INSIDE" />
+                        <FontAwesomeIcon fill="#f7cc74" glyphName="SPINNER" layoutX="87.0" layoutY="142.0" size="3em" />
+                        <Label fx:id="ongoingTaskCount" layoutX="101.0" layoutY="202.0" text="0" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="viewOngoingTasks" layoutX="51.0" layoutY="262.0" mnemonicParsing="false" onAction="#viewOngoingTasksOnClick" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="View Tasks" textFill="#514b4b">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.615686297416687" green="0.529411792755127" blue="0.9490196108818054" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="617.0" layoutY="296.0" prefHeight="340.0" prefWidth="221.0" style="-fx-background-color: #C499F3; -fx-background-radius: 30;">
+                     <children>
+                        <Label layoutX="22.0" layoutY="32.0" text="Completed tasks" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle fill="WHITE" layoutX="107.0" layoutY="129.0" radius="41.0" stroke="WHITE" strokeType="INSIDE" />
+                        <FontAwesomeIcon fill="#6bd177" glyphName="CHECK" layoutX="86.0" layoutY="142.0" size="3em" />
+                        <Label fx:id="CompletedTaskCount" layoutX="95.0" layoutY="202.0" text="0" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="ViewCompletedTasks" layoutX="51.0" layoutY="262.0" mnemonicParsing="false" onAction="#ViewCompletedTasksOnClick" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="View Tasks" textFill="#514b4b">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.615686297416687" green="0.529411792755127" blue="0.9490196108818054" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Line endX="695.2633056640625" endY="-1.52587890625E-5" layoutX="177.0" layoutY="120.0" startX="-139.60330200195312" startY="-7.62939453125E-6" stroke="#d7d4d4" />
+                  <AnchorPane layoutX="230.0" layoutY="150.0" prefHeight="97.0" prefWidth="467.0" style="-fx-background-color: #4b2570; -fx-background-radius: 20;">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="15.0" prefHeight="26.0" prefWidth="335.0" text="High Priority Task Recommendation" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="HighTaskPriority" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="40.0" prefHeight="41.0" prefWidth="418.0" text="No Task Available" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIcon fill="#fcf2f3" glyphName="BULLHORN" layoutX="55.0" layoutY="38.0" size="2.5em" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pendingTaskPage" layoutX="220.0" layoutY="73.0" prefHeight="636.0" prefWidth="802.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutY="85.0" prefHeight="616.0" prefWidth="903.0">
+                     <children>
+                        <TableView fx:id="pendingTable" layoutX="43.0" layoutY="112.0" prefHeight="379.0" prefWidth="824.0" style="-fx-border-radius: 5; -fx-padding: 0; -fx-background-color: white;">
+                          <columns>
+                            <TableColumn fx:id="pendingTaskNo" prefWidth="59.25390625" style="-fx-background-color: #e2e1e3;" text="Task Id." />
+                            <TableColumn fx:id="pendingTaskName" prefWidth="159.10986328125" style="-fx-background-color: #e2e1e3;" text="Task name" />
+                              <TableColumn fx:id="pendingDescription" prefWidth="233.39019775390625" style="-fx-background-color: #e2e1e3;" text="Description" />
+                              <TableColumn fx:id="pendingPriority" prefWidth="90.1058349609375" style="-fx-background-color: #e2e1e3;" text="Priority" />
+                              <TableColumn fx:id="pendingStatus" prefWidth="86.37420654296875" style="-fx-background-color: #e2e1e3;" text="Status" />
+                              <TableColumn fx:id="pendingStartDate" prefWidth="102.4959716796875" style="-fx-background-color: #e2e1e3;" text="Start Date" />
+                              <TableColumn fx:id="pendingDueDate" prefWidth="95.41888427734375" style="-fx-background-color: #e2e1e3;" text="Due Date" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="102.0" layoutY="15.0" text="Pending Tasks" textFill="#514b4b">
+                           <font>
+                              <Font name="System Bold" size="29.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIcon fill="#e46666" glyphName="BELL" layoutX="40.0" layoutY="45.0" size="2.8em" text="" />
+                        <Line endX="909.10888671875" endY="1.52587890625E-5" layoutX="-40.0" layoutY="62.0" startX="70.37353515625" stroke="#d7d4d4" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ongoingTasksPage" prefHeight="702.0" prefWidth="905.0" visible="false">
+               <children>
+                  <AnchorPane layoutY="85.0" prefHeight="617.0" prefWidth="905.0">
+                     <children>
+                        <TableView fx:id="ongoingTable" layoutX="36.0" layoutY="112.0" prefHeight="379.0" prefWidth="827.0" style="-fx-padding: 0; -fx-border-radius: 5; -fx-background-color: white;">
+                           <columns>
+                              <TableColumn fx:id="ongoingTaskNo" prefWidth="59.25390625" style="-fx-background-color: #e2e1e3;" text="Task Id." />
+                              <TableColumn fx:id="ongoingTaskName" prefWidth="179.69110107421875" style="-fx-background-color: #e2e1e3;" text="Task name" />
+                              <TableColumn fx:id="ongoingDescription" prefWidth="241.80889892578125" style="-fx-background-color: #e2e1e3;" text="Description" />
+                              <TableColumn fx:id="ongoingPriority" prefWidth="71.2158203125" style="-fx-background-color: #e2e1e3;" text="Priority" />
+                              <TableColumn fx:id="ongoingStatus" prefWidth="87.41082763671875" style="-fx-background-color: #e2e1e3;" text="Status" />
+                              <TableColumn fx:id="ongoingStartDate" prefWidth="95.1790771484375" style="-fx-background-color: #e2e1e3;" text="Start Date" />
+                              <TableColumn fx:id="ongoingDueDate" prefWidth="94.5614013671875" style="-fx-background-color: #e2e1e3;" text="Due Date" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="102.0" layoutY="15.0" text="Ongoing Tasks" textFill="#514b4b">
+                           <font>
+                              <Font name="System Bold" size="29.0" />
+                           </font>
+                        </Label>
+                        <Line endX="902.7999267578125" endY="1.52587890625E-5" layoutX="-40.0" layoutY="62.0" startX="70.37353515625" stroke="#d7d4d4" />
+                        <FontAwesomeIcon fill="#f7cc74" glyphName="SPINNER" layoutX="36.0" layoutY="48.0" size="3em" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="completedTasksPage" prefHeight="702.0" prefWidth="905.0" visible="false">
+               <children>
+                  <AnchorPane layoutY="85.0" prefHeight="616.0" prefWidth="905.0">
+                     <children>
+                        <TableView fx:id="completetedTaskTable" layoutX="37.0" layoutY="102.0" prefHeight="379.0" prefWidth="826.0" style="-fx-padding: 0; -fx-border-radius: 5; -fx-background-color: white;">
+                           <columns>
+                              <TableColumn fx:id="completedTaskNo" prefWidth="59.25390625" style="-fx-background-color: #e2e1e3;" text="Task Id." />
+                              <TableColumn fx:id="completedTaskName" prefWidth="189.1910400390625" style="-fx-background-color: #e2e1e3;" text="Task name" />
+                              <TableColumn fx:id="completedDescription" prefWidth="230.3089599609375" style="-fx-background-color: #e2e1e3;" text="Description" />
+                              <TableColumn fx:id="completedPriority" prefWidth="77.29290771484375" style="-fx-background-color: #e2e1e3;" text="Priority" />
+                              <TableColumn fx:id="completedStatus" prefWidth="81.17913818359375" style="-fx-background-color: #e2e1e3;" text="Status" />
+                              <TableColumn fx:id="completedStartDate" prefWidth="96.75634765625" style="-fx-background-color: #e2e1e3;" text="Start date" />
+                              <TableColumn fx:id="completedDueDate" prefWidth="93.06134033203125" style="-fx-background-color: #e2e1e3;" text="Due Date" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="102.0" layoutY="15.0" text="Completed Tasks" textFill="#514b4b">
+                           <font>
+                              <Font name="System Bold" size="29.0" />
+                           </font>
+                        </Label>
+                        <Line endX="901.22265625" endY="1.52587890625E-5" layoutX="-40.0" layoutY="62.0" startX="70.37353515625" stroke="#d7d4d4" />
+                        <FontAwesomeIcon fill="#6bd177" glyphName="CHECK" layoutX="37.0" layoutY="46.0" size="3em" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="myTasksPage" layoutX="133.0" layoutY="80.0" prefHeight="653.0" prefWidth="802.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="-1.0" layoutY="66.0" prefHeight="636.0" prefWidth="906.0">
+                     <children>
+                        <TableView fx:id="myTasksTable" layoutX="36.0" layoutY="70.0" onMouseClicked="#SelectTask" prefHeight="262.0" prefWidth="837.0" style="-fx-padding: 0; -fx-border-radius: 10; -fx-background-radius: 5;">
+                           <columns>
+                              <TableColumn fx:id="taskno" prefWidth="54.195556640625" style="-fx-background-color: #e2e1e3;" text="Task Id." />
+                              <TableColumn fx:id="taskname" prefWidth="161.04058837890625" style="-fx-background-color: #e2e1e3;" text="Task name" />
+                              <TableColumn fx:id="descriptionn" prefWidth="251.76837158203125" style="-fx-background-color: #e2e1e3;" text="Description" />
+                              <TableColumn fx:id="priorityy" prefWidth="90.191162109375" style="-fx-background-color: #e2e1e3;" text="Priority" />
+                              <TableColumn fx:id="statuss" prefWidth="89.80889892578125" style="-fx-background-color: #e2e1e3;" text="Status" />
+                              <TableColumn fx:id="startDate" prefWidth="91.6910400390625" style="-fx-background-color: #e2e1e3;" text="Start date" />
+                              <TableColumn fx:id="dueDate" prefWidth="102.3089599609375" style="-fx-background-color: #e2e1e3;" text="Due Date" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="searchBar" layoutX="580.0" layoutY="25.0" prefHeight="30.0" prefWidth="242.0" promptText="Search" style="-fx-background-color: #f7f7f7; -fx-background-radius: 15; -fx-padding: 0px 0px 0px 32px;">
+                           <effect>
+                              <InnerShadow>
+                                 <color>
+                                    <Color red="0.8600000143051147" green="0.8600000143051147" blue="0.8600000143051147" opacity="0.8145315647125244" />
+                                 </color>
+                              </InnerShadow>
+                           </effect>
+                        </TextField>
+                        <FontAwesomeIcon fill="#4b2991" glyphName="SEARCH" layoutX="592.0" layoutY="45.0" text="" />
+                        <AnchorPane layoutX="36.0" layoutY="350.0" prefHeight="232.0" prefWidth="834.0" style="-fx-border-radius: 20; -fx-padding: 0; -fx-background-color: white; -fx-background-radius: 8;">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7400000095367432" green="0.7178000211715698" blue="0.7178000211715698" opacity="0.46271511912345886" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Label layoutX="20.0" layoutY="12.0" text="Task Name :" textFill="#514b4b">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="19.0" layoutY="45.0" text="Description : " textFill="#514b4b">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="40.0" layoutY="150.0" text="Priority :" textFill="#514b4b">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="509.0" layoutY="88.0" text="Status :" textFill="#514b4b">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="490.0" layoutY="15.0" text="Start Date :" textFill="#514b4b">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="494.0" layoutY="50.0" text="Due date :" textFill="#514b4b">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="addTaskButton" layoutX="399.0" layoutY="190.0" mnemonicParsing="false" onAction="#AddTaskButtonOnClick" prefHeight="31.0" prefWidth="114.0" style="-fx-background-radius: 20; -fx-background-color: #4b2570;" text="Add Task" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PLUS" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="updateTaskButton" layoutX="530.0" layoutY="190.0" mnemonicParsing="false" onAction="#UpdateTaskButtonOnClick" prefHeight="31.0" prefWidth="114.0" style="-fx-background-radius: 20; -fx-background-color: #4b2570;" text="Update Task" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="EDIT" />
+                                 </graphic>
+                              </Button>
+                              <TextField fx:id="taskNametextField" layoutX="109.0" layoutY="8.0" prefHeight="28.0" prefWidth="214.0" style="-fx-border-color: #d3d2d4; -fx-background-color: #f7f7f7; -fx-border-radius: 5;" />
+                              <TextArea fx:id="descriptionTextField" layoutX="109.0" layoutY="45.0" prefHeight="89.0" prefWidth="278.0" promptText="limit 100 words" style="-fx-background-color: #f7f7f7; -fx-border-color: #d3d2d4; -fx-border-radius: 5;" />
+                              <ComboBox fx:id="priorityChooseField" layoutX="109.0" layoutY="145.0" onAction="#addTaskPriorityList" prefWidth="150.0" promptText="Choose" style="-fx-background-color: #f7f7f7; -fx-border-color: #d3d2d4; -fx-border-radius: 5;" />
+                              <ComboBox fx:id="statusChooseField" layoutX="580.0" layoutY="83.0" onAction="#addTaskStatusList" prefWidth="150.0" promptText="Choose" style="-fx-background-color: #f7f7f7; -fx-border-color: #d3d2d4; -fx-border-radius: 5;" />
+                              <DatePicker fx:id="startDateField" layoutX="580.0" layoutY="8.0" style="-fx-border-color: #d3d2d4; -fx-background-color: #f7f7f7; -fx-border-radius: 5;" />
+                              <DatePicker fx:id="dueDateField" layoutX="580.0" layoutY="45.0" style="-fx-background-color: #f7f7f7; -fx-border-color: #d3d2d4; -fx-border-radius: 5;">
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </DatePicker>
+                              <Button fx:id="deleteTaskButton" layoutX="660.0" layoutY="190.0" mnemonicParsing="false" onAction="#DeleteTaskButtonOnClick" prefHeight="31.0" prefWidth="114.0" style="-fx-background-radius: 20; -fx-background-color: #4b2570;" text="Delete Task" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="TRASH" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="clearTaskButton" layoutX="270.0" layoutY="190.0" mnemonicParsing="false" onAction="#clearTaskButtonOnClick" prefHeight="31.0" prefWidth="114.0" style="-fx-background-radius: 20; -fx-background-color: #4b2570;" text="Clear Task" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="ERASER" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="82.0" layoutY="20.0" text="My Tasks" textFill="#514b4b">
+                           <font>
+                              <Font name="System Bold" size="29.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIcon fill="#a780e1" glyphName="CHECK_CIRCLE" layoutX="38.0" layoutY="50.0" size="2.9em" />
+                        <Button fx:id="downloadFile" layoutX="835.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-color: #4b2570; -fx-background-radius: 10;">
+                           <graphic>
+                              <FontAwesomeIcon fill="#fcfafa" glyphName="DOWNLOAD" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

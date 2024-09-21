@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="registerPage" prefHeight="502.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagement.controllers.RegisterController">
+   <children>
+      <AnchorPane layoutY="-2.0" prefHeight="508.0" prefWidth="287.0" style="-fx-background-color: #a579d1;">
+         <children>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="2.0" layoutY="142.0" prefHeight="17.0" prefWidth="287.0" text="WORK FLOW" textAlignment="JUSTIFY" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="70.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/workflow.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="287.0" prefHeight="506.0" prefWidth="335.0" style="-fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="1.0" layoutY="44.0" prefHeight="44.0" prefWidth="335.0" text="REGISTER" textAlignment="JUSTIFY" textFill="#514b4b">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect>
+            </Label>
+            <Label layoutX="32.0" layoutY="234.0" text="Username" textFill="#514b4b">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="285.0" text="Password" textFill="#514b4b">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userNameTextField" layoutX="115.0" layoutY="231.0" prefHeight="26.0" prefWidth="188.0" promptText="Enter username" />
+            <PasswordField fx:id="passwordTextField" layoutX="115.0" layoutY="282.0" prefHeight="26.0" prefWidth="188.0" promptText="Enter password" />
+            <Button fx:id="registerButton" layoutX="34.0" layoutY="411.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="38.0" prefWidth="270.0" style="-fx-background-color: #a579d1; -fx-background-radius: 10;" text="Register" textFill="#fcfcfc">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="34.0" layoutY="128.0" text="First name" textFill="#514b4b">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="182.0" text="Last name" textFill="#514b4b">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstnameTextField" layoutX="115.0" layoutY="125.0" prefHeight="26.0" prefWidth="188.0" promptText="Enter first name" />
+            <TextField fx:id="lastnameTextField" layoutX="115.0" layoutY="179.0" prefHeight="26.0" prefWidth="188.0" promptText="Enter last name" />
+            <Label layoutX="32.0" layoutY="338.0" text="Email" textFill="#514b4b">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="registerMessageLabel" alignment="CENTER" layoutX="1.0" layoutY="383.0" prefHeight="17.0" prefWidth="335.0" textFill="#cf5151db" />
+            <TextField fx:id="emailTextField" layoutX="115.0" layoutY="335.0" prefHeight="26.0" prefWidth="188.0" promptText="Enter email" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
